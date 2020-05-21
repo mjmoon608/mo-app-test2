@@ -27,7 +27,7 @@ export default () => (
         },
         android: {
           headerStyle: {
-            backgroundColor: "pink",
+            backgroundColor: MAINCOLOR,
             elevation: 0,
           },
         },
