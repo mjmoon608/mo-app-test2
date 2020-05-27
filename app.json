@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "mo-app 공부",
+    "githubUrl": "https://github.com/mjmoon608/mo-app-test2"
   }
 }
