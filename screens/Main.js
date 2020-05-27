@@ -12,19 +12,19 @@ const { width, height } = Dimensions.get("screen");
 // height: ${height / 3}px;
 const Container = styled.ScrollView`
   width: 100%;
-  height: 550px;
+  height: 100%;
 `;
 
 // height: 100px;
 const Category = styled.View`
   width: 100%;
-  height: 150px
+  height: 500px
   background-color: blue;
 `;
 
 const Section = styled.View`
   background-color: red;
-  height: 100px;
+  height: 100%;
 `;
 
 const Text = styled.Text``;
@@ -34,7 +34,7 @@ export default () => (
     <Swiper
       autoplay={true}
       autoplayTimeout={4}
-      style={{ height: 100, margin: 15 }}
+      style={{ height: 250, marginTop: 15, marginBottom: 15 }}
     >
       <Section>
         <Text>화면1</Text>

@@ -6,19 +6,54 @@ import Restaurant from "../screens/Restaurant";
 import Favorite from "../screens/Favorite";
 import More from "../screens/More";
 import MAINCOLOR from "../color/MainColor";
-import { Platform } from "react-native";
+import { Platform, Image, Button, Text } from "react-native";
+
+import { MaterialIcons } from "@expo/vector-icons";
+import { min } from "react-native-reanimated";
 
 const Tabs = createBottomTabNavigator();
 
 const getHeaderName = (route) =>
   route?.state?.routeNames[route.state.index] || "Main";
 
+const LogoTitle = () => {
+  return (
+    <Image
+      resizeMode={"contain"}
+      style={{ width: 100, height: 40 }}
+      source={require("../image/mo-eat-edit2.png")}
+    />
+  );
+};
+
+const HeaderButton = () => {
+  return (
+    <Button
+      iconName="my-location"
+      title="지역"
+      onPress={() => alert("지역선택 추가하기")}
+      color={MAINCOLOR}
+    />
+  );
+};
+
 export default ({ navigation, route }) => {
   useLayoutEffect(() => {
     const name = getHeaderName(route);
     navigation.setOptions({
-      title: name,
+      // title: name, -> 바텀 네비게이션 라벨 이름이랑 헤더 이름 일치시키기
+      title: name != "Main" ? name : null,
+      headerTitleStyle: {
+        fontWeight: "bold",
+        color: "#3b3c3c",
+      },
+      headerLeft: name == "Main" ? (props) => <LogoTitle {...props} /> : null,
+      headerRight: name == "Main" || name == "Restaurant" ? HeaderButton : null,
     });
+    // navigation.setOptions({
+    //   headerLeft: (props) => <LogoTitle {...props} />,
+    //   headerRight: HeaderButton,
+    // });
   });
   //   useEffect(() => {
   //     navigation.setOptions({
@@ -49,7 +84,7 @@ export default ({ navigation, route }) => {
         },
       })}
       tabBarOptions={{
-        showLabel: true, // tabbar에 라벨 지우고 싶을 때 true 로 변경.
+        showLabel: true, // tabbar에 라벨 지우고 싶을 때 false 로 변경.
         activeTintColor: MAINCOLOR,
       }}
     >

@@ -15,9 +15,11 @@ export default () => (
     mode="card" // default 값이 card임
     screenOptions={{
       ...Platform.select({
+        // 네비게이션 탭파 헤더를 꾸밀거면 여기
         ios: {
           headerStyle: {
-            backgroundColor: MAINCOLOR,
+            // backgroundColor: MAINCOLOR,
+            backgroundColor: "white",
             // borderBottomColor: "pink", // 아이폰에서 헤더와 스크린을 구분하는 선을 없애기 위해 색상 통일
             // shadowColor: "pink", // 아이폰에서 헤더와 스크린을 구분하는 선을 없애기 위해 색상 통일
             // elevation: 0,
@@ -27,7 +29,8 @@ export default () => (
         },
         android: {
           headerStyle: {
-            backgroundColor: MAINCOLOR,
+            backgroundColor: "white",
+            // backgroundColor: MAINCOLOR,
             elevation: 0,
           },
         },

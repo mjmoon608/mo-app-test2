@@ -7,4 +7,5 @@
 - https://github.com/leecade/react-native-swiper#installation
 
 ## ScrollView
+
 - height값을 지정해주어야 스크롤이 정상 작동.

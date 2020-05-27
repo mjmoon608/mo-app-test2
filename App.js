@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
-import { Image, StatusBar } from "react-native";
+import { Image, StatusBar, Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { Asset } from "expo-asset";
 import { Ionicons } from "@expo/vector-icons";
@@ -42,7 +42,9 @@ export default function App() {
       <NavigationContainer>
         <Stack />
       </NavigationContainer>
-      <StatusBar barStyle="light-content" />
+      <StatusBar
+        barStyle={Platform.OS === "ios" ? "dark-content" : "light-content"}
+      />
     </>
   ) : (
     <AppLoading
